@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b24"><title>Smash Court | Badminton Tournament</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero"><nav class="topbar"><a class="brand" href="#top"><span class="brand-mark">S</span><span>SMASH<span class="brand-light">COURT</span></span></a><span class="live-pill"><i></i> TOURNAMENT DASHBOARD</span></nav>
+    <div class="hero-content" id="top"><div class="hero-copy"><p class="eyebrow">THE ROAD TO THE TITLE</p><h1>Play hard.<br><em>Rise higher.</em></h1><p class="hero-desc">Two pools. Four playoff battles. One champion. Enter scores and let the tournament dashboard calculate standings, winners, and qualification automatically.</p><a class="primary-btn" href="#pools">Manage tournament <span>↘</span></a></div><div class="hero-photo" role="img" aria-label="Badminton racket and shuttlecock on a court"><div class="photo-label"><span>08</span><div><b>DOUBLES TEAMS</b><small>ONE CHAMPION</small></div></div></div></div>
+    <div class="hero-stats"><div><strong>08</strong><span>TEAMS</span></div><div><strong>02</strong><span>POOLS</span></div><div><strong>12</strong><span>POOL MATCHES</span></div><div><strong>04</strong><span>PLAYOFFS</span></div></div>
+  </header>
+  <main class="page-wrap">
+    <section class="section" id="pools"><div class="section-heading"><div><p class="eyebrow dark">GROUP STAGE</p><h2>Pool standings</h2></div><span class="section-note">Top two teams from each pool qualify</span></div>
+      <div class="pool-grid"><div><h3 class="pool-title">POOL A <span>Teams 1–4</span></h3><div class="table-shell"><table class="standings-table"><thead><tr><th>#</th><th>TEAM / PLAYERS</th><th>PL</th><th>W</th><th>L</th><th>PTS</th><th>DIFF.</th></tr></thead><tbody id="pool-a-body"></tbody></table></div></div><div><h3 class="pool-title">POOL B <span>Teams 5–8</span></h3><div class="table-shell"><table class="standings-table"><thead><tr><th>#</th><th>TEAM / PLAYERS</th><th>PL</th><th>W</th><th>L</th><th>PTS</th><th>DIFF.</th></tr></thead><tbody id="pool-b-body"></tbody></table></div></div></div>
+      <p class="helper">Ranking: points first, then score difference, then wins. A win earns 2 points; a loss earns 0. Only matches between teams in the same pool count toward pool standings.</p>
+    </section>
+    <section class="section" id="teams"><div class="section-heading"><div><p class="eyebrow dark">YOUR LINE-UP</p><h2>Meet the teams</h2></div><span class="section-note">Random pairings kept unchanged</span></div><div class="team-grid" id="team-grid"></div></section>
+    <section class="section" id="fixtures"><div class="section-heading fixture-heading"><div><p class="eyebrow dark">POOL MATCHES</p><h2>Enter match scores</h2></div><div class="fixture-actions"><label class="select-wrap">Pool <select id="pool-filter"><option value="all">All pools</option><option value="A">Pool A</option><option value="B">Pool B</option></select></label><button class="secondary-btn" id="export-btn">Export results ↓</button></div></div>
+      <div class="score-tip"><span class="tip-icon">↳</span><div><b>One score field. One difference field.</b><span>Enter a score like <strong>21-18</strong>. The website calculates the difference and winner automatically.</span></div></div><div class="fixture-list" id="fixture-list"></div>
+    </section>
+    <section class="section" id="playoffs"><div class="section-heading"><div><p class="eyebrow dark">THE FINALS PATH</p><h2>Playoffs & championship</h2></div><span class="section-note">Teams fill in automatically from pool standings</span></div>
+      <div class="bracket-grid">
+        <article class="playoff-card"><span class="playoff-label">QUALIFIER 1</span><h3>Pool winners</h3><div class="qualifier-team" id="q1-a">Pool A #1</div><input class="score-input playoff-score" id="q1-score" placeholder="e.g. 21-18" inputmode="numeric" maxlength="9"><div class="qualifier-team" id="q1-b">Pool B #1</div><p class="playoff-note" id="q1-note">Winner advances directly to the Final. Loser goes to Qualifier 2.</p></article>
+        <article class="playoff-card"><span class="playoff-label">QUALIFIER 2</span><h3>Second-place teams</h3><div class="qualifier-team" id="q2-a">Pool A #2</div><input class="score-input playoff-score" id="q2-score" placeholder="e.g. 21-18" inputmode="numeric" maxlength="9"><div class="qualifier-team" id="q2-b">Pool B #2</div><p class="playoff-note" id="q2-note">Winner faces the Qualifier 1 loser.</p></article>
+        <article class="playoff-card"><span class="playoff-label">ELIMINATOR</span><h3>Last final spot</h3><div class="qualifier-team" id="el-a">Qualifier 1 loser</div><input class="score-input playoff-score" id="el-score" placeholder="e.g. 21-18" inputmode="numeric" maxlength="9"><div class="qualifier-team" id="el-b">Qualifier 2 winner</div><p class="playoff-note" id="el-note">Winner advances to the Final.</p></article>
+        <article class="playoff-card final-card"><span class="playoff-label">GRAND FINAL</span><h3>Championship match</h3><div class="qualifier-team" id="final-a">Qualifier 1 winner</div><input class="score-input playoff-score" id="final-score" placeholder="e.g. 21-18" inputmode="numeric" maxlength="9"><div class="qualifier-team" id="final-b">Eliminator winner</div><p class="playoff-note" id="final-note">The winner is the tournament champion 🏆</p></article>
+      </div><div class="champion-banner" id="champion-banner">🏆 The champion will appear here after the Grand Final score is entered.</div>
+    </section>
+    <footer><div class="brand footer-brand"><span class="brand-mark">S</span><span>SMASH<span class="brand-light">COURT</span></span></div><span>Built for the love of the game.</span><button id="reset-btn" class="reset-btn">Reset all scores</button></footer>
+  </main><div class="toast" id="toast" role="status"></div><script src="data.js"></script><script src="app.js"></script>
+</body></html>
