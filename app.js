@@ -22,7 +22,7 @@
   function renderStandings() {
     for(const pool of ['A','B']) {
       const body=$(`pool-${pool.toLowerCase()}-body`);
-      body.innerHTML=statsForPool(pool).map((t,i)=>`<tr><td><span class="rank ${i<2?'top':''}">${i+1}</span></td><td><div class="team-cell"><span class="team-avatar">${initials(t.icon)}</span><div><div class="team-name">${safe(t.name)}</div><div class="player-line">${safe(t.icon)} + ${safe(t.sub)}</div></div></div></td><td>${t.played}</td><td>${t.wins}</td><td>${t.losses}</td><td><span class="points-badge">${t.points}</span></td><td class="${t.diff>0?'diff-pos':t.diff<0?'diff-neg':''}">${t.diff>0?'+':''}${t.diff}</td></tr>`).join('');
+      body.innerHTML=statsForPool(pool).map((t,i)=>`<tr><td><span class="rank ${i<2?'top':''}">${i+1}</span></td><td><div class="team-cell"><span class="team-avatar">${initials(t.icon)}</span><div><div class="team-name">${safe(t.name)}</div><div class="player-line">${safe(t.icon)} + ${safe(t.sub)}</div></div></div></td><td>${t.played}</td><td>${t.wins}</td><td>${t.losses}</td><td><span class="points-badge">${t.points}</span></td></tr>`).join('');
     }
   }
   function renderTeams(){ $('team-grid').innerHTML=teams.map(t=>`<article class="team-card"><div class="team-card-top"><span class="team-avatar">${initials(t.icon)}</span><span class="team-tag">POOL ${poolOf(t.id)} · TEAM ${String(t.id).padStart(2,'0')}</span></div><h3>${safe(t.icon)}</h3><p><span class="pair-plus">+</span> ${safe(t.sub)}</p></article>`).join(''); }

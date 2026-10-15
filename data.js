@@ -16,13 +16,13 @@ window.TOURNAMENT_DATA = {
       "id": 3,
       "name": "Team 3",
       "icon": "Sabari",
-      "sub": "Vishnav"
+      "sub": "Vaishnav"
     },
     {
       "id": 4,
       "name": "Team 4",
       "icon": "Bhajan",
-      "sub": "Arun (Pokkam)"
+      "sub": "Arun"
     },
     {
       "id": 5,
@@ -33,7 +33,7 @@ window.TOURNAMENT_DATA = {
     {
       "id": 6,
       "name": "Team 6",
-      "icon": "Abhijith (Thambi)",
+      "icon": "Abhijith ",
       "sub": "Jishnu M P"
     },
     {
